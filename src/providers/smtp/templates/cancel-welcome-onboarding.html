@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Cancelación Sesión de Bienvenida - Banco de Bogotá</title>
+    <style>
+      /* Reset styles */
+      body,
+      table,
+      td,
+      p,
+      a,
+      li,
+      blockquote {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+
+      /* Main styles */
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #f4f4f4;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+
+      .header {
+        background-color: #002c76;
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .logo-placeholder {
+        width: 300px;
+        height: 60px;
+        background-color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #666666;
+        font-size: 14px;
+        border-radius: 4px;
+      }
+
+      .content {
+        padding: 40px 30px;
+      }
+
+      .greeting {
+        font-size: 18px;
+        color: #333333;
+        margin-bottom: 20px;
+        font-weight: normal;
+      }
+
+      .main-title {
+        font-size: 28px;
+        color: #cd3232;
+        font-weight: bold;
+        margin-bottom: 25px;
+        line-height: 1.3;
+      }
+
+      .body-text {
+        font-size: 16px;
+        color: #333333;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      .cancellation-info {
+        background-color: #f8f9fa;
+        border: 2px solid #cd3232;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+      }
+
+      .cancellation-info h3 {
+        color: #cd3232;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 15px 0;
+      }
+
+      .info-detail {
+        margin-bottom: 12px;
+        font-size: 16px;
+        color: #333333;
+      }
+
+      .info-label {
+        font-weight: bold;
+        color: #002c76;
+      }
+
+      .status-pending {
+        color: #cd3232;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #ffbe00;
+        color: #002c76 !important;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+        border: 2px solid #002c76;
+      }
+
+      .cta-button:hover {
+        background-color: #e6a800;
+      }
+
+      .closing-message {
+        font-size: 16px;
+        color: #333333;
+        line-height: 1.6;
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-left: 4px solid #ffbe00;
+        border-radius: 4px;
+      }
+
+      .signature {
+        border-top: 2px solid #002c76;
+        padding-top: 20px;
+        margin-top: 40px;
+      }
+
+      .signature-title {
+        font-weight: bold;
+        color: #002c76;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .signature-company {
+        color: #666666;
+        font-size: 14px;
+      }
+
+      .footer {
+        background-color: #002c76;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .alert-icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-color: #cd3232;
+        border-radius: 50%;
+        color: #ffffff;
+        text-align: center;
+        line-height: 24px;
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 14px;
+      }
+
+      /* Responsive styles */
+      @media screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+        }
+
+        .content {
+          padding: 30px 20px !important;
+        }
+
+        .main-title {
+          font-size: 24px !important;
+        }
+
+        .cancellation-info {
+          padding: 20px !important;
+        }
+
+        .cta-button {
+          display: block !important;
+          text-align: center !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      role="presentation"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      width="100%"
+    >
+      <tr>
+        <td>
+          <div class="email-container">
+            <!-- Header -->
+            <div class="header">
+              <div class="logo-placeholder">
+                <img
+                  src="https://www.bancodebogota.com/documents/38440/2713321/Banco+de+Bogota%CC%81.svg/ae6fe9a9-fdc2-c13a-7404-9d3b62424d7e?t=1658163297427"
+                  alt="Logo Banco de Bogotá"
+                />
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content">
+              <!-- Greeting -->
+              <div class="greeting">Hola {{name}},</div>
+
+              <!-- Main Title -->
+              <h1 class="main-title">
+                <span class="alert-icon">!</span>
+                Tu sesión de Bienvenida ha sido cancelada
+              </h1>
+
+              <!-- Body Text -->
+              <div class="body-text">
+                Esperamos que te encuentres bien. Lamentamos informarte que
+                debido a motivos logísticos internos, nos vemos en la necesidad
+                de cancelar tu sesión de bienvenida programada anteriormente.
+              </div>
+
+              <div class="body-text">
+                Estamos trabajando para reprogramar esta importante sesión y
+                asegurar que tengas la mejor experiencia de onboarding posible.
+                Tu integración al equipo sigue siendo nuestra prioridad.
+              </div>
+
+              <!-- Cancellation Information -->
+              <div class="cancellation-info">
+                <h3>Información de la Cancelación</h3>
+
+                <div class="info-detail">
+                  <span class="info-label">Fecha cancelada:</span>
+                  {{start_date}} {{start_time}}
+                </div>
+
+                <div class="info-detail">
+                  <span class="info-label">Nueva fecha:</span>
+                  <span class="status-pending">Pendiente por definir</span>
+                </div>
+
+                <div class="info-detail">
+                  <span class="info-label">Estado:</span> Te contactaremos
+                  pronto con la nueva programación
+                </div>
+              </div>
+
+              <!-- Closing Message -->
+              <div class="closing-message">
+                <strong>Lamentamos los inconvenientes ocasionados</strong> y
+                pronto te enviaremos nueva información con los detalles de tu
+                sesión de bienvenida reprogramada. Agradecemos tu comprensión y
+                paciencia durante este proceso.
+              </div>
+
+              <!-- Signature -->
+              <div class="signature">
+                <div class="signature-title">Equipo de Talento Humano</div>
+                <div class="signature-company">Banco de Bogotá</div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+              © 2024 Banco de Bogotá. Todos los derechos reservados.<br />
+              Si tienes preguntas, no dudes en contactarnos.
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

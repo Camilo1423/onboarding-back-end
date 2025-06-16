@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Reprogramación Sesión Técnica - Banco de Bogotá</title>
+    <style>
+      /* Reset styles */
+      body,
+      table,
+      td,
+      p,
+      a,
+      li,
+      blockquote {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+
+      /* Main styles */
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #f4f4f4;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+
+      .header {
+        background-color: #002c76;
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .logo-placeholder {
+        width: 300px;
+        height: 60px;
+        background-color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #666666;
+        font-size: 14px;
+        border-radius: 4px;
+      }
+
+      .content {
+        padding: 40px 30px;
+      }
+
+      .greeting {
+        font-size: 18px;
+        color: #333333;
+        margin-bottom: 20px;
+        font-weight: normal;
+      }
+
+      .main-title {
+        font-size: 28px;
+        color: #002c76;
+        font-weight: bold;
+        margin-bottom: 25px;
+        line-height: 1.3;
+        display: flex;
+        align-items: center;
+      }
+
+      .reschedule-icon {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-color: #ffbe00;
+        border-radius: 50%;
+        color: #002c76;
+        text-align: center;
+        line-height: 32px;
+        font-weight: bold;
+        margin-right: 12px;
+        font-size: 18px;
+      }
+
+      .body-text {
+        font-size: 16px;
+        color: #333333;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      .schedule-comparison {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        border: 2px solid #e9ecef;
+      }
+
+      .comparison-header {
+        color: #002c76;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 20px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .tech-icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-color: #002c76;
+        border-radius: 4px;
+        color: #ffbe00;
+        text-align: center;
+        line-height: 24px;
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 12px;
+      }
+
+      .schedule-section {
+        margin-bottom: 20px;
+        padding: 18px;
+        border-radius: 6px;
+      }
+
+      .schedule-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .old-schedule {
+        background-color: #ffeaea;
+        border-left: 4px solid #cd3232;
+      }
+
+      .new-schedule {
+        background-color: #ffbe00;
+        border-left: 4px solid #002c76;
+      }
+
+      .schedule-label {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .old-schedule .schedule-label {
+        color: #cd3232;
+      }
+
+      .new-schedule .schedule-label {
+        color: #002c76;
+      }
+
+      .schedule-details {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .old-schedule .schedule-details {
+        color: #666666;
+        text-decoration: line-through;
+      }
+
+      .new-schedule .schedule-details {
+        color: #002c76;
+        font-weight: 500;
+      }
+
+      .schedule-item {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+      }
+
+      .schedule-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .item-label {
+        font-weight: bold;
+        min-width: 80px;
+        margin-right: 10px;
+      }
+
+      .item-value {
+        flex: 1;
+      }
+
+      .cta-section {
+        text-align: center;
+        margin: 30px 0;
+        padding: 25px;
+        background-color: #f0f8ff;
+        border-radius: 8px;
+        border: 2px solid #ffbe00;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #002c76;
+        color: #ffffff !important;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .cta-button:hover {
+        background-color: #001a4d;
+      }
+
+      .cta-text {
+        color: #002c76;
+        font-size: 14px;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .closing-message {
+        font-size: 16px;
+        color: #333333;
+        line-height: 1.6;
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #e8f4fd;
+        border-left: 4px solid #ffbe00;
+        border-radius: 4px;
+      }
+
+      .signature {
+        border-top: 2px solid #002c76;
+        padding-top: 20px;
+        margin-top: 40px;
+      }
+
+      .signature-title {
+        font-weight: bold;
+        color: #002c76;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .signature-company {
+        color: #666666;
+        font-size: 14px;
+      }
+
+      .footer {
+        background-color: #002c76;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      /* Responsive styles */
+      @media screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+        }
+
+        .content {
+          padding: 30px 20px !important;
+        }
+
+        .main-title {
+          font-size: 24px !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+
+        .reschedule-icon {
+          margin-bottom: 10px !important;
+          margin-right: 0 !important;
+        }
+
+        .schedule-comparison {
+          padding: 20px !important;
+        }
+
+        .schedule-section {
+          padding: 15px !important;
+        }
+
+        .schedule-item {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+
+        .item-label {
+          min-width: auto !important;
+          margin-bottom: 5px !important;
+        }
+
+        .cta-button {
+          display: block !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      role="presentation"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      width="100%"
+    >
+      <tr>
+        <td>
+          <div class="email-container">
+            <!-- Header -->
+            <div class="header">
+              <div class="logo-placeholder">
+                <img
+                  src="https://www.bancodebogota.com/documents/38440/2713321/Banco+de+Bogota%CC%81.svg/ae6fe9a9-fdc2-c13a-7404-9d3b62424d7e?t=1658163297427"
+                  alt="Logo Banco de Bogotá"
+                />
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content">
+              <!-- Greeting -->
+              <div class="greeting">Hola {{name}},</div>
+
+              <!-- Main Title -->
+              <h1 class="main-title">
+                <span class="reschedule-icon">↻</span>
+                Tu sesión técnica ha sido reprogramada
+              </h1>
+
+              <!-- Body Text -->
+              <div class="body-text">
+                Nos complace informarte que hemos confirmado una nueva fecha
+                para tu sesión técnica de onboarding. Hemos optimizado la
+                programación para garantizar que recibas la mejor capacitación
+                técnica posible.
+              </div>
+
+              <div class="body-text">
+                La nueva sesión mantendrá el mismo contenido técnico
+                especializado y te proporcionará todas las herramientas
+                necesarias para tu exitosa integración.
+              </div>
+
+              <!-- Schedule Comparison -->
+              <div class="schedule-comparison">
+                <h3 class="comparison-header">
+                  <span class="tech-icon">&lt;/&gt;</span>
+                  Actualización de Programación
+                </h3>
+
+                <!-- Old Schedule -->
+                <div class="schedule-section old-schedule">
+                  <span class="schedule-label">Fecha Anterior (Cancelada)</span>
+                  <div class="schedule-details">
+                    <div class="schedule-item">
+                      <span class="item-label">Fecha:</span>
+                      <span class="item-value">{{start_date}}</span>
+                    </div>
+                    <div class="schedule-item">
+                      <span class="item-label">Hora:</span>
+                      <span class="item-value">{{start_time}}</span>
+                    </div>
+                    <div class="schedule-item">
+                      <span class="item-label">Sesión:</span>
+                      <span class="item-value"
+                        >{{description_text}}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- New Schedule -->
+                <div class="schedule-section new-schedule">
+                  <span class="schedule-label">Nueva Fecha Confirmada</span>
+                  <div class="schedule-details">
+                    <div class="schedule-item">
+                      <span class="item-label">Fecha:</span>
+                      <span class="item-value">{{new_start_date}}</span>
+                    </div>
+                    <div class="schedule-item">
+                      <span class="item-label">Hora:</span>
+                      <span class="item-value">{{new_start_time}}</span>
+                    </div>
+                    <div class="schedule-item">
+                      <span class="item-label">Modalidad:</span>
+                      <span class="item-value"
+                        >Virtual - Sesión interactiva</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Section -->
+              <div class="cta-section">
+                <div class="cta-text">
+                  Accede a tu sesión técnica con el nuevo enlace:
+                </div>
+                <a
+                  href="{{meeting_url}}"
+                  class="cta-button"
+                >
+                  Ingresar a la Sesión Técnica
+                </a>
+              </div>
+
+              <!-- Closing Message -->
+              <div class="closing-message">
+                <strong>Agradecemos tu comprensión</strong> y flexibilidad
+                durante este ajuste de programación. Estamos comprometidos en
+                brindarte una experiencia técnica de onboarding excepcional que
+                te prepare completamente para tu nuevo rol en Banco de Bogotá.
+              </div>
+
+              <!-- Signature -->
+              <div class="signature">
+                <div class="signature-title">Equipo de Talento Humano</div>
+                <div class="signature-company">Banco de Bogotá</div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+              © 2024 Banco de Bogotá. Todos los derechos reservados.<br />
+              Preparándote técnicamente para el éxito en tu nueva posición.
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

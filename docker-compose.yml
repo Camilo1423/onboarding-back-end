@@ -1,0 +1,37 @@
+services:
+  onboarding:
+    env_file:
+      - .env
+    depends_on:
+      - onboarding-db
+    networks:
+      - backend-tier
+    restart: always
+    container_name: onboarding
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3001:3000
+    expose:
+      - '3001'
+  onboarding-db:
+    container_name: onboarding-db
+    image: postgres:latest
+    ports:
+      - 5436:5432
+    restart: always
+    networks:
+      - backend-tier
+    volumes:
+      - onboarding-db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=onboarding
+      - POSTGRES_PASSWORD=onboarding
+      - POSTGRES_DB=onboarding
+volumes:
+  onboarding-db:
+    driver: local
+networks:
+  backend-tier:
+    driver: bridge

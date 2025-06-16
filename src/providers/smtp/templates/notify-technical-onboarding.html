@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Recordatorio Sesión Técnica - Banco de Bogotá</title>
+    <style>
+      /* Reset styles */
+      body,
+      table,
+      td,
+      p,
+      a,
+      li,
+      blockquote {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+
+      /* Main styles */
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #f4f4f4;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+
+      .header {
+        background-color: #002c76;
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .logo-placeholder {
+        width: 300px;
+        height: 60px;
+        background-color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #666666;
+        font-size: 14px;
+        border-radius: 4px;
+      }
+
+      .content {
+        padding: 40px 30px;
+      }
+
+      .greeting {
+        font-size: 18px;
+        color: #333333;
+        margin-bottom: 20px;
+        font-weight: normal;
+      }
+
+      .main-title {
+        font-size: 28px;
+        color: #002c76;
+        font-weight: bold;
+        margin-bottom: 25px;
+        line-height: 1.3;
+        display: flex;
+        align-items: center;
+      }
+
+      .tech-reminder-icon {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-color: #ffbe00;
+        border-radius: 6px;
+        color: #002c76;
+        text-align: center;
+        line-height: 32px;
+        font-weight: bold;
+        margin-right: 12px;
+        font-size: 16px;
+      }
+
+      .body-text {
+        font-size: 16px;
+        color: #333333;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      .timing-emphasis {
+        font-weight: bold;
+      }
+
+      .urgent-timing {
+        color: #cd3232;
+        background-color: #ffeaea;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        border: 1px solid #cd3232;
+      }
+
+      .normal-timing {
+        color: #002c76;
+        font-weight: bold;
+      }
+
+      .technical-session-info {
+        background-color: #ffbe00;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        border-left: 4px solid #002c76;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .session-header {
+        color: #002c76;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 0 20px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .tech-icon {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background-color: #002c76;
+        border-radius: 4px;
+        color: #ffbe00;
+        text-align: center;
+        line-height: 28px;
+        font-weight: bold;
+        margin-right: 12px;
+        font-size: 16px;
+      }
+
+      .session-detail {
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: #002c76;
+        display: flex;
+        align-items: center;
+      }
+
+      .session-detail:last-of-type {
+        margin-bottom: 20px;
+      }
+
+      .detail-label {
+        font-weight: bold;
+        min-width: 140px;
+        margin-right: 10px;
+      }
+
+      .detail-value {
+        flex: 1;
+        font-weight: 500;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #002c76;
+        color: #ffffff !important;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #001a4d;
+      }
+
+      .urgent-cta {
+        background-color: #cd3232 !important;
+        animation: pulse 2s infinite;
+      }
+
+      .urgent-cta:hover {
+        background-color: #b02828 !important;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(205, 50, 50, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(205, 50, 50, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(205, 50, 50, 0);
+        }
+      }
+
+      .technical-note {
+        background-color: #e8f4fd;
+        border: 2px solid #002c76;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 30px 0;
+      }
+
+      .note-header {
+        color: #002c76;
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .gear-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: #002c76;
+        border-radius: 50%;
+        color: #ffffff;
+        text-align: center;
+        line-height: 20px;
+        font-weight: bold;
+        margin-right: 8px;
+        font-size: 12px;
+      }
+
+      .note-text {
+        color: #333333;
+        font-size: 15px;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .footer-message {
+        background-color: #f8f9fa;
+        border-left: 4px solid #ffbe00;
+        border-radius: 4px;
+        padding: 20px;
+        margin: 30px 0;
+      }
+
+      .footer-text {
+        color: #002c76;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .signature {
+        border-top: 2px solid #002c76;
+        padding-top: 20px;
+        margin-top: 40px;
+      }
+
+      .signature-title {
+        font-weight: bold;
+        color: #002c76;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .signature-company {
+        color: #666666;
+        font-size: 14px;
+      }
+
+      .footer {
+        background-color: #002c76;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .urgent-footer {
+        background-color: #cd3232;
+      }
+
+      /* Responsive styles */
+      @media screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+        }
+
+        .content {
+          padding: 30px 20px !important;
+        }
+
+        .main-title {
+          font-size: 24px !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+
+        .tech-reminder-icon {
+          margin-bottom: 10px !important;
+          margin-right: 0 !important;
+        }
+
+        .technical-session-info {
+          padding: 20px !important;
+        }
+
+        .session-detail {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+
+        .detail-label {
+          min-width: auto !important;
+          margin-bottom: 5px !important;
+        }
+
+        .cta-button {
+          display: block !important;
+          text-align: center !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      role="presentation"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      width="100%"
+    >
+      <tr>
+        <td>
+          <div class="email-container">
+            <!-- Header -->
+            <div class="header">
+              <div class="logo-placeholder">
+                <img
+                  src="https://www.bancodebogota.com/documents/38440/2713321/Banco+de+Bogota%CC%81.svg/ae6fe9a9-fdc2-c13a-7404-9d3b62424d7e?t=1658163297427"
+                  alt="Logo Banco de Bogotá"
+                />
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content">
+              <!-- Greeting -->
+              <div class="greeting">Hola {{name}},</div>
+
+              <!-- Main Title -->
+              <h1 class="main-title">
+                <span class="tech-reminder-icon">&lt;/&gt;</span>
+                Recordatorio: Sesión Técnica Programada
+              </h1>
+
+              <!-- Body Text -->
+              <div class="body-text">
+                Queremos recordarte que tienes una sesión técnica programada
+                para comenzar en
+                <!-- Use one of these timing options based on urgency -->
+                <span class="timing-emphasis normal-timing"
+                  >{{time_until_start}}</span
+                >
+                <!-- OR for urgent reminders: -->
+                <!-- <span class="timing-emphasis urgent-timing">[15 minutos]</span> -->
+                . Esta sesión es clave para tu desarrollo técnico inicial.
+              </div>
+
+              <div class="body-text">
+                Durante esta capacitación técnica especializada, adquirirás las
+                competencias y herramientas necesarias para desempeñarte
+                exitosamente en tu nuevo rol dentro de nuestro entorno
+                tecnológico.
+              </div>
+
+              <!-- Technical Session Information -->
+              <div class="technical-session-info">
+                <h3 class="session-header">
+                  <span class="tech-icon">⚙</span>
+                  Detalles de tu Sesión Técnica
+                </h3>
+
+                <div class="session-detail">
+                  <span class="detail-label">Nombre de la sesión:</span>
+                  <span class="detail-value">{{description_text}}</span>
+                </div>
+
+                <div class="session-detail">
+                  <span class="detail-label">Fecha:</span>
+                  <span class="detail-value">{{start_date}}</span>
+                </div>
+
+                <div class="session-detail">
+                  <span class="detail-label">Hora:</span>
+                  <span class="detail-value">{{start_time}}</span>
+                </div>
+
+                <div class="session-detail">
+                  <span class="detail-label">Modalidad:</span>
+                  <span class="detail-value"
+                    >Virtual - Sesión práctica interactiva</span
+                  >
+                </div>
+
+                <div class="session-detail">
+                  <span class="detail-label">Duración estimada:</span>
+                  <span class="detail-value"
+                    >{{estimated_duration}} minutos (incluye práctica)</span
+                  >
+                </div>
+
+                <div style="text-align: center; margin-top: 20px">
+                  <!-- Use normal button for advance reminders -->
+                  <a
+                    href="{{meeting_url}}"
+                    class="cta-button"
+                  >
+                    Acceder a la Sesión Técnica
+                  </a>
+                  <!-- OR for urgent reminders: -->
+                  <!-- <a href="[ENLACE_SESION_TECNICA]" class="cta-button urgent-cta">
+                                    ¡Ingresar Ahora!
+                                </a> -->
+                </div>
+              </div>
+
+              <!-- Technical Note -->
+              <div class="technical-note">
+                <div class="note-header">
+                  <span class="gear-icon">⚡</span>
+                  Preparación técnica recomendada
+                </div>
+                <p class="note-text">
+                  <strong>Asegúrate de tener:</strong> Conexión estable a
+                  internet, navegador actualizado, acceso a tu equipo de
+                  trabajo, y cualquier credencial o software que te haya sido
+                  proporcionado previamente. Si tienes dudas técnicas, contacta
+                  a nuestro equipo de soporte.
+                </p>
+              </div>
+
+              <!-- Footer Message -->
+              <div class="footer-message">
+                <p class="footer-text">
+                  <strong>Recomendación importante:</strong> Te recomendamos
+                  estar conectado con antelación para evitar inconvenientes
+                  técnicos y aprovechar al máximo esta sesión de capacitación
+                  especializada.
+                </p>
+              </div>
+
+              <!-- Signature -->
+              <div class="signature">
+                <div class="signature-title">Equipo de Tecnología</div>
+                <div class="signature-company">Banco de Bogotá</div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+              <!-- Use normal footer for advance reminders -->
+              © 2024 Banco de Bogotá. Todos los derechos reservados.<br />
+              Preparándote técnicamente para el éxito profesional.
+              <!-- OR for urgent reminders: -->
+              <!-- <div class="footer urgent-footer">
+                            © 2024 Banco de Bogotá. Todos los derechos reservados.<br>
+                            ¡Tu sesión técnica comienza muy pronto!
+                        </div> -->
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
