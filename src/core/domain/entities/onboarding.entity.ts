@@ -1,3 +1,5 @@
+import { Collaborator } from '@prisma/client';
+
 export class Onboarding {
   constructor(
     public readonly id: string,
@@ -33,6 +35,29 @@ export class Onboarding {
       now.toString(),
     );
   }
+}
+
+export class Meeting {
+  constructor(
+    public readonly id: string,
+    public readonly name: string,
+    public readonly description: string,
+    public readonly startDate: string,
+    public readonly endDate: string,
+    public readonly meetingType: OnboardingType,
+  ) {}
+}
+
+export class MeetingWithAssignments {
+  constructor(
+    public readonly id: string,
+    public readonly name: string,
+    public readonly description: string,
+    public readonly startDate: Date,
+    public readonly endDate: Date,
+    public readonly meetingType: OnboardingType,
+    public readonly collaborators: Collaborator[],
+  ) {}
 }
 
 export type OnboardingType = 'technical' | 'welcome';

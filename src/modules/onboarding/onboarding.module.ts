@@ -16,6 +16,8 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { envConfig } from '../../config/env.config';
 import { UpdateOnboardingUseCase } from './use-cases/update-onboarding.use-case';
 import { DeleteOnboardingUseCase } from './use-cases/delete-onboarding.use-case';
+import { GetOnboardingByDayUseCase } from './use-cases/get-onboarding-by-day.use-case';
+import { GetDetailedOnboardingUseCase } from './use-cases/get-detailed-onboarding.use-case';
 
 @Module({
   controllers: [OnboardingController],
@@ -76,6 +78,18 @@ import { DeleteOnboardingUseCase } from './use-cases/delete-onboarding.use-case'
           eventEmitter,
         ),
       inject: [IOnboardingPortSymbol, FindByIdsUseCase, EventEmitter2],
+    },
+    {
+      provide: GetOnboardingByDayUseCase,
+      useFactory: (onboardingRepo: IOnboardingPort) =>
+        new GetOnboardingByDayUseCase(onboardingRepo),
+      inject: [IOnboardingPortSymbol],
+    },
+    {
+      provide: GetDetailedOnboardingUseCase,
+      useFactory: (onboardingRepo: IOnboardingPort) =>
+        new GetDetailedOnboardingUseCase(onboardingRepo),
+      inject: [IOnboardingPortSymbol],
     },
     // Adaptadores concretos
     {

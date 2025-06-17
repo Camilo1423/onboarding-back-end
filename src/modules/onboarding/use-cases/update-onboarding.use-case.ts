@@ -133,7 +133,7 @@ export class UpdateOnboardingUseCase {
           );
 
           const splitDate = splitDateTime(onboardingEntityOld.startDate);
-          const splitDateNew = splitDateTime(onboarding.end_date);
+          const splitDateNew = splitDateTime(onboarding.start_date);
 
           const payload: Email[] = collaborators.map(collaborator => ({
             email: collaborator.email,

@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Delete,
+  Get,
   Post,
   Put,
   Query,
@@ -15,6 +16,8 @@ import { DeleteOnboardingUseCase } from '../use-cases/delete-onboarding.use-case
 import { ApiQuery } from '@nestjs/swagger';
 import { OnboardingType } from 'src/core/domain/entities/onboarding.entity';
 import { AccessTokenGuard } from 'src/infrastructure/services/jwt/guards/access-token.guard';
+import { GetOnboardingByDayUseCase } from '../use-cases/get-onboarding-by-day.use-case';
+import { GetDetailedOnboardingUseCase } from '../use-cases/get-detailed-onboarding.use-case';
 
 @Controller('onboarding')
 export class OnboardingController {
@@ -22,6 +25,8 @@ export class OnboardingController {
     private readonly createOnboardingUseCase: CreateOnboardingUseCase,
     private readonly updateOnboardingUseCase: UpdateOnboardingUseCase,
     private readonly deleteOnboardingUseCase: DeleteOnboardingUseCase,
+    private readonly getOnboardingByDayUseCase: GetOnboardingByDayUseCase,
+    private readonly getDetailedOnboardingUseCase: GetDetailedOnboardingUseCase,
   ) {}
 
   @UseGuards(AccessTokenGuard)
@@ -50,5 +55,21 @@ export class OnboardingController {
     @Query('id') id: string,
   ) {
     return this.deleteOnboardingUseCase.execute(type, id);
+  }
+
+  @UseGuards(AccessTokenGuard)
+  @Get('get-onboarding-by-day')
+  @ApiQuery({ name: 'day', type: String, required: true })
+  async getOnboardingByDay(@Query('day') day: string) {
+    const response = await this.getOnboardingByDayUseCase.execute(day);
+    return response;
+  }
+
+  @UseGuards(AccessTokenGuard)
+  @Get('get-detailed-onboarding')
+  @ApiQuery({ name: 'id', type: String, required: true })
+  async getDetailedOnboarding(@Query('id') id: string) {
+    const response = await this.getDetailedOnboardingUseCase.execute(id);
+    return response;
   }
 }

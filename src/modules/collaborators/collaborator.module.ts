@@ -10,6 +10,11 @@ import { FindAllCollaboratorsUseCase } from './use-cases/find-all-collaborators.
 import { FindCollaboratorByIdUseCase } from './use-cases/find-collaborator-by-id.use-case';
 import { UpdateCollaboratorUseCase } from './use-cases/update-collaborator.use-case';
 import { DeleteCollaboratorUseCase } from './use-cases/delete-collaborator.use-case';
+import {
+  IOnboardingPort,
+  IOnboardingPortSymbol,
+} from 'src/core/ports/repositories/onboarding.port';
+import { PrismaOnboardingRepository } from 'src/infrastructure/prisma/repositories/prisma-onboarding.repository';
 
 @Module({
   controllers: [CollaboratorController],
@@ -29,9 +34,11 @@ import { DeleteCollaboratorUseCase } from './use-cases/delete-collaborator.use-c
     },
     {
       provide: FindCollaboratorByIdUseCase,
-      useFactory: (collaboratorRepo: ICollaboratorPort) =>
-        new FindCollaboratorByIdUseCase(collaboratorRepo),
-      inject: [ICollaboratorPortSymbol],
+      useFactory: (
+        collaboratorRepo: ICollaboratorPort,
+        onboardingRepo: IOnboardingPort,
+      ) => new FindCollaboratorByIdUseCase(collaboratorRepo, onboardingRepo),
+      inject: [ICollaboratorPortSymbol, IOnboardingPortSymbol],
     },
     {
       provide: UpdateCollaboratorUseCase,
@@ -49,6 +56,10 @@ import { DeleteCollaboratorUseCase } from './use-cases/delete-collaborator.use-c
     {
       provide: ICollaboratorPortSymbol,
       useClass: PrismaCollaboratorRepository,
+    },
+    {
+      provide: IOnboardingPortSymbol,
+      useClass: PrismaOnboardingRepository,
     },
   ],
 })

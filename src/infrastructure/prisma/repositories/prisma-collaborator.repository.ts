@@ -101,7 +101,7 @@ export class PrismaCollaboratorRepository implements ICollaboratorPort {
       data: {
         fullName: collaborator.fullName,
         email: collaborator.email,
-        entryDate: collaborator.entryDate,
+        entryDate: new Date(collaborator.entryDate),
         technicalOnboardingDone: collaborator.technicalOnboardingDone,
         welcomeOnboardingDone: collaborator.welcomeOnboardingDone,
       },
