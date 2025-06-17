@@ -8,7 +8,7 @@ RUN apk add --no-cache libc6-compat openssl
 
 # Copiar package.json e instalar dependencias
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm i
 
 # Copiar el resto del código
 COPY . .
